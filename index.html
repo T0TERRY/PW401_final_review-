@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PW401 Final Review | Grantseeking Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4d2e;
+            --primary-light: #2d6a4f;
+            --accent: #f77f00;
+            --accent-light: #fcbf49;
+            --bg: #faf9f6;
+            --card-bg: #ffffff;
+            --text: #2b2d42;
+            --text-light: #5a5d7a;
+            --border: #e5e4df;
+            --shadow: rgba(26, 77, 46, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 3rem 1.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.6s ease 0.2s backwards;
+        }
+
+        .nav-tabs {
+            background: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px var(--shadow);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-container {
+            display: inline-flex;
+            min-width: 100%;
+            padding: 0.5rem 1rem;
+        }
+
+        .tab {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(26, 77, 46, 0.12);
+        }
+
+        .card h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.35rem;
+            color: var(--primary-light);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .card h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 1rem 0 0.5rem;
+            font-weight: 600;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(247, 127, 0, 0.08), rgba(252, 191, 73, 0.08));
+            border-left: 4px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            margin: 0.75rem 0 0.75rem 1.5rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            padding-left: 0.25rem;
+        }
+
+        li::marker {
+            color: var(--accent);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .mini-card {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .mini-card strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 2px dashed var(--primary-light);
+        }
+
+        .key-terms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .key-term {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .exam-info {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .exam-info h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table tr:hover {
+            background: var(--bg);
+        }
+
+        .progress-tracker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px var(--shadow);
+            font-size: 0.9rem;
+            font-weight: 500;
+            z-index: 99;
+            display: none;
+        }
+
+        .accordion {
+            margin: 1rem 0;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: var(--bg);
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #f0efe8;
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.25rem;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 1rem 1.25rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--accent);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(247, 127, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(247, 127, 0, 0.4);
+        }
+
+        .back-to-top::before {
+            content: '↑';
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.25rem;
+            }
+            .tab {
+                font-size: 0.85rem;
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>PW401 Final Review</h1>
+        <p>Complete Guide to Grantseeking & Proposal Writing</p>
+    </div>
+
+    <nav class="nav-tabs">
+        <div class="nav-container">
+            <button class="tab active" onclick="showSection('overview')">Overview</button>
+            <button class="tab" onclick="showSection('step1')">Step 1: Idea</button>
+            <button class="tab" onclick="showSection('step2')">Step 2: Research</button>
+            <button class="tab" onclick="showSection('step3')">Step 3: Problem</button>
+            <button class="tab" onclick="showSection('step4')">Step 4: Goals</button>
+            <button class="tab" onclick="showSection('step5')">Step 5: Strategies</button>
+            <button class="tab" onclick="showSection('step6')">Step 6: Evaluation</button>
+            <button class="tab" onclick="showSection('step7')">Step 7: Sustainability</button>
+            <button class="tab" onclick="showSection('step8')">Step 8: Budget</button>
+            <button class="tab" onclick="showSection('step9')">Step 9: Background</button>
+            <button class="tab" onclick="showSection('step10')">Step 10: Summary</button>
+            <button class="tab" onclick="showSection('step11')">Step 11: Submit</button>
+            <button class="tab" onclick="showSection('step12')">Step 12: Relations</button>
+            <button class="tab" onclick="showSection('exam')">Exam Info</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- OVERVIEW SECTION -->
+        <div id="overview" class="content-section active">
+            <div class="card">
+                <h2><span class="icon">📚</span> Course Overview</h2>
+                <p>PW401 covers the complete grantseeking process from developing fundable project ideas to sustaining relationships with funders.</p>
+
+                <h3>Key Players in Grantseeking</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Lead Program Staff</strong>
+                        Project Leader who oversees the initiative
+                    </div>
+                    <div class="mini-card">
+                        <strong>Executive Director</strong>
+                        Provides organizational leadership and approval
+                    </div>
+                    <div class="mini-card">
+                        <strong>Finance Person</strong>
+                        Manages budget planning and financial tracking
+                    </div>
+                    <div class="mini-card">
+                        <strong>Grantwriting Consultant</strong>
+                        Expert in proposal development and writing
+                    </div>
+                </div>
+
+                <h3>Grant Seeking Readiness Checklist</h3>
+                <ol>
+                    <li>Clear mission, purpose, goals, and strategic plan</li>
+                    <li>Proper financial systems to track and report grant funds</li>
+                    <li>Adequate staff or ability to hire with grant funds</li>
+                    <li>Leadership ready to meet grant requirements (reports, evaluations, events)</li>
+                    <li>Technology access, website, and social media presence</li>
+                </ol>
+
+                <h3>Ways to Seek Funds</h3>
+                <div class="grid-2">
+                    <div class="highlight-box">
+                        <strong>Fundraising Strategies</strong>
+                        <ul>
+                            <li>Grantseeking</li>
+                            <li>Email fundraising</li>
+                            <li>Social media strategies</li>
+                            <li>Text/Mobile strategies</li>
+                            <li>Individual major giving</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-box">
+                        <strong>Funding Sources (Most to Least Likely)</strong>
+                        <ol>
+                            <li>Individuals</li>
+                            <li>Foundations</li>
+                            <li>Bequests (inheritance)</li>
+                            <li>Corporations</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h3>Categories of Support</h3>
+                <ul>
+                    <li><strong>Operating:</strong> General organizational expenses</li>
+                    <li><strong>Program:</strong> Specific project/program costs</li>
+                    <li><strong>Capacity Building:</strong> Organizational development</li>
+                    <li><strong>Capital/Equipment:</strong> Physical assets and infrastructure</li>
+                    <li><strong>Research:</strong> Studies and investigations</li>
+                </ul>
+
+                <h3>Types of Proposals</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">Concept Paper</div>
+                        <div class="accordion-content">
+                            <p>A brief summary (2-3 pages) providing an overview of the project to the funder. Focuses on alignment with funder's priorities, describes the need, and outlines the plan to address it.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Letter Proposal</div>
+                        <div class="accordion-content">
+                            <p>A 3-4 page document sometimes requested by corporations. Describes the project plan, introduces the organization, and includes the specific funding request.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Full Proposal</div>
+                        <div class="accordion-content">
+                            <p>Most commonly requested by foundations. Includes cover letter, proposal summary, and detailed information about the project and community significance. May require various attachments and is often submitted through online portals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 1: DEVELOPING THE PROPOSAL IDEA -->
+        <div id="step1" class="content-section">
+            <div class="card">
+                <h2><span class="icon">💡</span> Step 1: Developing the Proposal Idea</h2>
+
+                <h3>What Makes a Project "Fundable"?</h3>
+                <div class="grid-2">
+                    <div class="mini-card" style="border-left: 4px solid #2d6a4f;">
+                        <strong>✅ Preferable</strong>
+                        <ul>
+                            <li>New Project</li>
+                            <li>Expanding Project</li>
+                        </ul>
+                    </div>
+                    <div class="mini-card" style="border-left: 4px solid #d62828;">
+                        <strong>❌ Non-Preferable</strong>
+                        <ul>
+                            <li>General Operating Support</li>
+                            <li>Program Continuation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Matching Project Ideas to Funders</h3>
+                <p>Conduct <strong>Prospect Research</strong> on funders to identify:</p>
+                <ul>
+                    <li>Programmatic priorities (objectives & goals)</li>
+                    <li>Geographic focus</li>
+                    <li>Issue areas of interest</li>
+                    <li>Funding restrictions and requirements</li>
+                </ul>
+
+                <h3>Things to Consider Before Starting</h3>
+                <div class="highlight-box">
+                    <strong>Involving the Right People</strong>
+                    Having appropriate staff in proposal planning is crucial to avoid funding programs that cannot be implemented or don't meet identified needs.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Understanding Proposal Structure</strong>
+                    Start with planning sections (problem statement, goals, objectives, strategies, evaluation, sustainability, budget) as the core. Background, summary, and cover letter follow.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Time Allocation</strong>
+                    Nonprofits should dedicate approximately 70% of time to program planning and 30% to organizational background, summary, and submission.
+                </div>
+
+                <h3>Six Key Proposal Development Questions</h3>
+                <ol>
+                    <li><strong>What community need</strong> does the program address? → <em>Need Statement</em></li>
+                    <li><strong>What would improvement look like?</strong> → <em>Goals & Objectives</em></li>
+                    <li><strong>What can the organization do</strong> to improve the situation? → <em>Strategies</em></li>
+                    <li><strong>How will we know if it succeeded?</strong> → <em>Evaluation</em></li>
+                    <li><strong>How much will it cost</strong> and what other support exists? → <em>Budget</em></li>
+                    <li><strong>How will it be funded in the future?</strong> → <em>Sustainability</em></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- STEP 2: DEVELOPING RELATIONSHIPS WITH FUNDERS -->
+        <div id="step2" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🤝</span> Step 2: Developing Relationships with Funders</h2>
+
+                <h3>What is Prospect Research?</h3>
+                <p>The process of gathering information and evaluating potential sources of funding or support for a project. It involves researching and identifying individuals, organizations, or institutions interested in providing resources.</p>
+
+                <h3>Information to Gather from Potential Funders</h3>
+                <ul>
+                    <li>Grantmaker's funding interests and priorities</li>
+                    <li>Grantmaking process and timeline</li>
+                    <li>Board and staff members</li>
+                    <li>Other relevant details (past grants, funding amounts, restrictions)</li>
+                </ul>
+
+                <h3>Where to Find This Information</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>🌐 Online (Website)</strong>
+                        Review funder websites, annual reports, grant databases, and IRS 990 forms
+                    </div>
+                    <div class="mini-card">
+                        <strong>👥 Approach Directly</strong>
+                        Contact funders through email, phone, or meetings to learn about priorities
+                    </div>
+                </div>
+
+                <h3>Ways to Develop Relationships</h3>
+                
+                <h4>1. Sending Email Inquiries</h4>
+                <div class="highlight-box">
+                    <strong>Think of it as an introduction</strong>
+                    Keep it brief! Don't write a mini-proposal. Introduce your organization and express interest in their funding priorities.
+                </div>
+
+                <h4>2. Contacting by Telephone</h4>
+                <ul>
+                    <li>Keep conversation short - they might not have time</li>
+                    <li>Goal is to make a connection</li>
+                    <li>Determine if there are follow-up steps</li>
+                </ul>
+
+                <h4>3. Funder Meetings</h4>
+                <p>Topics to cover:</p>
+                <ul>
+                    <li>Credibility of the organization</li>
+                    <li>Need for the proposed project</li>
+                    <li>Program description and community interest</li>
+                    <li>Proposed outcomes and ability to measure success</li>
+                    <li>Costs and projected revenue sources</li>
+                    <li>Why funder's interests align with your program</li>
+                </ul>
+
+                <h4>4. Writing a Letter of Inquiry (LOI)</h4>
+                <div class="highlight-box">
+                    <strong>A "sneak peek" of your organization</strong>
+                    <ul>
+                        <li>Set target audience and prospective program</li>
+                        <li>Not a full proposal</li>
+                        <li>Tests funder interest before full submission</li>
+                    </ul>
+                </div>
+
+                <h3>Understanding Public Funders</h3>
+                <p>Building relationships with public funders is different as they are government entities:</p>
+                <ul>
+                    <li><strong>NOFA:</strong> Notice of Funding Availability</li>
+                    <li><strong>RFA:</strong> Request for Applications</li>
+                    <li><strong>Prebid Conference/Webinar:</strong> Information sessions before submission</li>
+                    <li><strong>General Information Sessions:</strong> Learn about funding opportunities</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 3: PROBLEM STATEMENT -->
+        <div id="step3" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🎯</span> Step 3: Writing a Compelling Problem Statement</h2>
+
+                <h3>What is a Problem Statement?</h3>
+                <p>A concise and focused description of a specific issue or condition that your organization aims to address through a proposed project or intervention.</p>
+
+                <h3>Why Do We Need a Problem Statement?</h3>
+                <ul>
+                    <li>Informs readers/funders about problems the project addresses</li>
+                    <li>Sets the framework for the entire proposal</li>
+                    <li>Highlights beneficiaries, locations, timeframe, and necessary activities</li>
+                    <li>Creates agreement between funders and grantseekers on issue importance</li>
+                </ul>
+
+                <h3>Content of Problem Statement</h3>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">Relation to Mission and Purpose</div>
+                        <div class="accordion-content">
+                            <p>The problem must directly connect to your organization's mission. Show how addressing this issue aligns with your core purpose.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Focus on Community Needs</div>
+                        <div class="accordion-content">
+                            <p>Center the problem on those who will be served, not on your organization. Describe the community need, not organizational need.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Support Assertions with Evidence</div>
+                        <div class="accordion-content">
+                            <p>Use solid quantitative and qualitative data. Include statistics, research findings, and credible sources to validate the problem.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Connect Need to Your Ability</div>
+                        <div class="accordion-content">
+                            <p>Explain how your organization, given its size and resources, can meaningfully address the problem.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Make It Easily Digestible</div>
+                        <div class="accordion-content">
+                            <p>KISS - Keep It Sweet and Simple. Write clearly and concisely so readers quickly understand the issue.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Do Not Overpromise</div>
+                        <div class="accordion-content">
+                            <p>Be realistic about what can be achieved. Avoid claiming to solve problems beyond your scope or capacity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tips for Writing a Good Problem Statement</h3>
+                <ol>
+                    <li><strong>Use Clear and Relevant Statistics:</strong> Choose data that directly supports your case</li>
+                    <li><strong>Utilize Comparative Statistics:</strong> Show how your community compares to others</li>
+                    <li><strong>Quote Credible Authorities:</strong> Reference experts, studies, and reputable sources</li>
+                    <li><strong>Document Data Sources:</strong> Always cite where your information comes from</li>
+                    <li><strong>Use Compelling Stories:</strong> Include anecdotes that humanize the problem</li>
+                    <li><strong>Convey a Sense of Urgency:</strong> Explain why this problem needs addressing now</li>
+                </ol>
+
+                <h3>Review Questions</h3>
+                <ul>
+                    <li>Is the problem statement focused on those served (not the organization)?</li>
+                    <li>Does it directly connect to the organization's mission?</li>
+                    <li>Does it explain how the organization can meaningfully address the problem?</li>
+                    <li>Is it supported by solid quantitative and qualitative data?</li>
+                    <li>Is it KISS (Keep It Sweet and Simple)?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 4: GOALS AND OBJECTIVES -->
+        <div id="step4" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🎯</span> Step 4: Defining Clear Goals and Objectives</h2>
+
+                <h3>Definitions & Differences</h3>
+                
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Mission</strong>
+                        <p>The ongoing reason for your project or organization's existence.</p>
+                        <p><em>Example: Empower individuals through education, fostering lifelong learning, and building a literate community.</em></p>
+                    </div>
+                    <div class="mini-card">
+                        <strong>Goal</strong>
+                        <p>The vision the program wants to achieve by solving specific problems. May not be measurable.</p>
+                        <p><em>Example: Increase literacy rates and foster lifelong learning through training programs to enhance literacy skills among teens.</em></p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Objective</strong>
+                    <p>The results or changes expected after completion of work. Objectives are <strong>measurable and time-bound</strong>.</p>
+                    <p><em>Example: Increase literacy rates and foster lifelong learning by 10% within six months through training programs to enhance literacy skills among teens of ABC community.</em></p>
+                </div>
+
+                <h3>Related Concepts</h3>
+                <ul>
+                    <li><strong>Strategies:</strong> The "how to" - activities or methods to accomplish objectives</li>
+                    <li><strong>Activity:</strong> The work undertaken to achieve goals</li>
+                    <li><strong>Outcome:</strong> What will have changed as a result of your work (objectives/accomplishments)</li>
+                    <li><strong>Output:</strong> Materials or products created (posters, videos, workshops)</li>
+                    <li><strong>Benchmarks:</strong> How you'll know if objectives are achieved (measures of success)</li>
+                </ul>
+
+                <h3>Types of Objectives</h3>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">Output Objectives</div>
+                        <div class="accordion-content">
+                            <p>Focus on deliverables or tangible results - specific products, services, or outcomes to deliver.</p>
+                            <p><strong>Example:</strong> Create an interactive and user-friendly website that fosters a sense of community among Cambodian educators, especially Gen Z.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Outcome Objectives</div>
+                        <div class="accordion-content">
+                            <p>Focus on desired impacts or changes (knowledge, awareness, increase/decrease) the project aims to achieve.</p>
+                            <p><strong>Example:</strong> Raise awareness and knowledge of inclusive education among Cambodian educators, especially Gen Z educators, through social media campaign within 3 months.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Process Objectives</div>
+                        <div class="accordion-content">
+                            <p>Concerned with activities, tasks, or procedures needed for effective project implementation.</p>
+                            <p><strong>Example:</strong> Establish partnerships with Cambodian educators, especially Gen Z, to develop and produce an educational podcast series on inclusive teaching practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>How to Write Objectives (WHAT, WHO, HOW, WHEN)</h3>
+                <ol>
+                    <li><strong>WHAT:</strong> Based on the problem statement, what key area(s) is the organization seeking to change?</li>
+                    <li><strong>WHO/WHERE:</strong> Who (what segment of the population and where located) will be involved in the change?</li>
+                    <li><strong>HOW:</strong> How will change be measured (increase/improvement or decrease/reduction)? By what degree?</li>
+                    <li><strong>WHEN:</strong> When will this change take place? How many months/years or by what date?</li>
+                </ol>
+
+                <h3>SMART Objectives Framework</h3>
+                <div class="highlight-box">
+                    <strong>S - Specific:</strong> Answers WHAT, WHO, WHERE, HOW, and WHEN
+                </div>
+                <div class="highlight-box">
+                    <strong>M - Measurable:</strong> Can determine if goal is met; has benchmarks
+                </div>
+                <div class="highlight-box">
+                    <strong>A - Achievable:</strong> Based on available resources (funding, staffing, partners, space)
+                </div>
+                <div class="highlight-box">
+                    <strong>R - Relevant:</strong> Results-oriented and rewarding to organization, funders, and community
+                </div>
+                <div class="highlight-box">
+                    <strong>T - Time-Bound:</strong> Has a clear deadline
+                </div>
+
+                <h3>Objective Formulas</h3>
+                
+                <h4>1. Outcome Objective Formula</h4>
+                <div class="formula-box">
+[Action Verb] + [Key Result/Change] + of [Theme/Topic] + 
+to/among [Number] + [Target Audience + Location] + 
+via/through [Method/Action] + by/within [Deadline]
+                </div>
+                <p><strong>Example:</strong> To raise awareness of menstrual health and hygiene among 35 female students aged 13-16 at Samdach Preah Mahasagharachja Bour Kry Secondary School, Kandal Province, through a Telegram group by May.</p>
+
+                <h4>2. Output Objective Formula</h4>
+                <div class="formula-box">
+[Action Verb] + [Number] + [Deliverable/Product/Action] + 
+for/to + [Number] + [Target Audience + Location] + 
+by/within [Deadline]
+                </div>
+                <p><strong>Example:</strong> Donating 10 packages of sanitary pads to 35 female students aged 13-16 at Samdach Preah Mahasagharachja Bour Kry Secondary School in Kandal Province by June.</p>
+
+                <div class="formula-box">
+[Action Verb] + [Number] + [Deliverable/Product/Action] + 
+on [Theme/Topic] + for/to + [Number] + 
+[Target Audience + Location] + by/within [Deadline]
+                </div>
+                <p><strong>Example:</strong> To conduct a workshop on climate change-related harms and prevention tips for approximately 20 student participants from the Department of English, Institute of Foreign Languages by June.</p>
+            </div>
+        </div>
+
+        <!-- STEP 5: STRATEGIES -->
+        <div id="step5" class="content-section">
+            <div class="card">
+                <h2><span class="icon">📋</span> Step 5: Developing the Strategies</h2>
+
+                <h3>What are Strategies?</h3>
+                <p>Strategies (also known as workplan) tell funders the steps the organization proposes to carry out to accomplish its objectives. Strategies answer: <strong>"How will an organization actually accomplish the work for which it seeks funding?"</strong></p>
+
+                <h3>Content of the Strategies Component</h3>
+                
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Definition</strong>
+                        Detailed descriptions of activities the organization will conduct to achieve the ends specified in objectives
+                    </div>
+                    <div class="mini-card">
+                        <strong>Research</strong>
+                        Has this approach been tested? Is there data showing success?
+                    </div>
+                    <div class="mini-card">
+                        <strong>Status of Plan</strong>
+                        Is this being used, replicated, or is it new/innovative?
+                    </div>
+                    <div class="mini-card">
+                        <strong>Work Division</strong>
+                        Who will work on what? Clear assignment of responsibilities
+                    </div>
+                </div>
+
+                <h3>Questions to Answer When Developing Strategies</h3>
+                <ol>
+                    <li>What activities need to be carried out to meet the objectives?</li>
+                    <li>What are the starting and ending dates of these activities?</li>
+                    <li>Who has responsibility for completing each activity?</li>
+                    <li>How will those served be identified or participants selected?</li>
+                    <li>How was this methodology determined to be the best? Does it build on existing models or is it different? Why was it selected?</li>
+                </ol>
+
+                <div class="highlight-box">
+                    <strong>⚠️ REMINDER</strong>
+                    It is important to develop your objectives BEFORE developing your strategies. Do NOT construct your objectives around your strategies.
+                </div>
+
+                <h3>Strategies Review Questions</h3>
+                <ul>
+                    <li>Do strategies derive logically from problem statement, goals, and objectives?</li>
+                    <li>Do they present program activities to be undertaken?</li>
+                    <li>Has the grantseeker explained why specific strategies were selected?</li>
+                    <li>Is the timing and order of activities clear?</li>
+                    <li>Is it clear who will perform specific activities? Do their credentials demonstrate appropriateness?</li>
+                    <li>Given projected resources, are proposed activities feasible?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STEP 6: EVALUATION -->
+        <div id="step6" class="content-section">
+            <div class="card">
+                <h2><span class="icon">📊</span> Step 6: Preparing the Evaluation Component</h2>
+
+                <h3>What is Evaluation?</h3>
+                <p>A process that determines the <strong>impact, effectiveness, and efficiency</strong> of a program. It helps identify the effectiveness of your work and plan for the program's future.</p>
+
+                <h3>Purpose of Evaluation</h3>
+                <div class="highlight-box">
+                    <strong>Return on Investment (ROI)</strong>
+                    <p>The amount of benefit (return) based on the resources (funds, hours of work) used to produce it.</p>
+                    <ul>
+                        <li><strong>Financial Returns:</strong> Revenue, cost savings</li>
+                        <li><strong>Non-Financial Returns:</strong> Social impact, community benefit, knowledge gained</li>
+                    </ul>
+                </div>
+
+                <h3>The Virtues of Evaluation</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>🛡️ Reassuring Funders</strong>
+                        Shows accountability and proves grant money is well-spent
+                    </div>
+                    <div class="mini-card">
+                        <strong>📚 Learning and Improving</strong>
+                        Identifies what works and areas for improvement
+                    </div>
+                    <div class="mini-card">
+                        <strong>✅ Ensuring Positive Impact</strong>
+                        Confirms the program is making the desired difference
+                    </div>
+                    <div class="mini-card">
+                        <strong>📈 Evidence for Future Funding</strong>
+                        Provides data to support future grant applications
+                    </div>
+                </div>
+
+                <h3>Internal vs External Evaluation</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Internal Evaluation</strong>
+                        <ul>
+                            <li>Conducted by organization staff</li>
+                            <li>Less expensive</li>
+                            <li>Deep organizational knowledge</li>
+                            <li>May lack objectivity</li>
+                        </ul>
+                    </div>
+                    <div class="mini-card">
+                        <strong>External Evaluation</strong>
+                        <ul>
+                            <li>Conducted by outside evaluators</li>
+                            <li>More objective and credible</li>
+                            <li>Brings fresh perspective</li>
+                            <li>Higher cost</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Types of Evaluation Data</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">Quantitative Data</div>
+                        <div class="accordion-content">
+                            <p>Numerical data that can be measured and analyzed statistically.</p>
+                            <p><strong>Examples:</strong> Number of participants, percentage increases, test scores, attendance rates, cost per participant</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Qualitative Data</div>
+                        <div class="accordion-content">
+                            <p>Descriptive data that captures experiences, perceptions, and stories.</p>
+                            <p><strong>Examples:</strong> Interviews, focus groups, observations, case studies, participant testimonials</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Evaluation Review Questions</h3>
+                <ol>
+                    <li>Does the evaluation focus on assessing project results?</li>
+                    <li>Does it explain how evaluation will assess efficiency of program methods?</li>
+                    <li>Does it describe who will be evaluated and what will be measured?</li>
+                    <li>Does it specify what information will be collected?</li>
+                    <li>Does it state who will be responsible for making assessments?</li>
+                    <li>Does it discuss how information and conclusions will be used to improve the program?</li>
+                    <li>Does it provide the organization's definition of success?</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- STEP 7: SUSTAINABILITY -->
+        <div id="step7" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🌱</span> Step 7: Developing a Statement of Sustainability</h2>
+
+                <h3>What is Sustainability?</h3>
+                <p>A section within a proposal that outlines how you or your organization plans to maintain operations and resources over the long term. It includes strategies for securing ongoing funding, diversifying revenue, and leveraging partnerships.</p>
+
+                <h3>Why Consider Sustainability?</h3>
+                <ul>
+                    <li>Funders want to know programs will continue after their support ends</li>
+                    <li>Demonstrates long-term planning and organizational viability</li>
+                    <li>Shows commitment beyond one-time funding</li>
+                    <li>Proves impact will be lasting, not temporary</li>
+                </ul>
+
+                <h3>Content by Grant Type</h3>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">General Operating Grants</div>
+                        <div class="accordion-content">
+                            <p>Outline diverse revenue streams that support ongoing operations:</p>
+                            <ul>
+                                <li>Individual donor base development</li>
+                                <li>Earned income strategies</li>
+                                <li>Multiple foundation/corporate partnerships</li>
+                                <li>Endowment building</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Project-Specific Grants</div>
+                        <div class="accordion-content">
+                            <p>Explain how the program will continue after grant period:</p>
+                            <ul>
+                                <li>Integration into operating budget</li>
+                                <li>New funding sources identified</li>
+                                <li>Earned income from project</li>
+                                <li>Community support and partnerships</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Capital or Equipment Grants</div>
+                        <div class="accordion-content">
+                            <p>Show how assets will be maintained and utilized:</p>
+                            <ul>
+                                <li>Maintenance budget allocation</li>
+                                <li>Operating costs coverage</li>
+                                <li>Long-term use plans</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Capacity-Building Grants</div>
+                        <div class="accordion-content">
+                            <p>Demonstrate how new capacity will be sustained:</p>
+                            <ul>
+                                <li>Staff retention plans</li>
+                                <li>Ongoing training investments</li>
+                                <li>System maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Sustainability Strategy Sources</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Grants from Others</strong>
+                        Foundations and corporations beyond initial funder
+                    </div>
+                    <div class="mini-card">
+                        <strong>Individual Donors</strong>
+                        Building a base of recurring individual supporters
+                    </div>
+                    <div class="mini-card">
+                        <strong>Fees for Service</strong>
+                        Charging for services provided
+                    </div>
+                    <div class="mini-card">
+                        <strong>Sales of Items/Activities</strong>
+                        Revenue from products or events
+                    </div>
+                </div>
+
+                <h3>Sustainability Review Questions</h3>
+                <ol>
+                    <li>Is it the organization's intent to continue the program after initial grant funding ends?</li>
+                    <li>If yes, does the sustainability component present a plan for securing future funding?</li>
+                    <li>Does it discuss future funding strategies or earned-income strategies?</li>
+                    <li>If requesting multiyear grant, does it show decreasing reliance on grant support each year?</li>
+                </ol>
+
+                <div class="highlight-box">
+                    <strong>💡 Note for Multiyear Grants</strong>
+                    Grantmakers prefer to see decreasing reliance on their support each year, with the organization assuming greater financial responsibility for the project.
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 8: BUDGET -->
+        <div id="step8" class="content-section">
+            <div class="card">
+                <h2><span class="icon">💰</span> Step 8: Developing the Proposal Budget</h2>
+
+                <h3>What is a Budget Plan?</h3>
+                <p>A detailed financial plan that outlines estimated income and expenses for a specific period. It's a systematic approach to allocating resources and managing financial aspects of a program or organization.</p>
+
+                <h3>Types of Budget Plans</h3>
+                
+                <h4>1. General Support (GS) Budget</h4>
+                <p>Outlines income and expenses for a fiscal year or grant period, aligned with organizational goals and values.</p>
+                
+                <div class="highlight-box">
+                    <strong>Basic Guidelines:</strong>
+                    <ul>
+                        <li><strong>Organize income and expenses</strong> into clear categories</li>
+                        <li><strong>Include all staff costs</strong> (salaries, benefits, taxes)</li>
+                        <li><strong>Directors and Officers liability insurance</strong> is important</li>
+                        <li><strong>Things add up [Indirect costs]</strong> - administrative overhead, utilities, rent</li>
+                        <li><strong>Create a modest cushion</strong> for unexpected expenses</li>
+                    </ul>
+                </div>
+
+                <h4>2. Program Budget</h4>
+                <p>Focuses on costs associated with a specific body of work or program.</p>
+
+                <h3>Stages of Budget Development</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>1. Review, Research, and Organize</strong>
+                        Gather cost information, review organizational needs, research market rates
+                    </div>
+                    <div class="mini-card">
+                        <strong>2. Develop the Budget</strong>
+                        Create line items, calculate costs, ensure alignment with proposal
+                    </div>
+                    <div class="mini-card">
+                        <strong>3. Review, Update, and Review Again</strong>
+                        Check calculations, get feedback, ensure accuracy
+                    </div>
+                    <div class="mini-card">
+                        <strong>4. Develop the Budget Narrative</strong>
+                        Explain each line item, justify costs, provide context
+                    </div>
+                </div>
+
+                <h3>Common Budget Categories</h3>
+                
+                <h4>Personnel Costs</h4>
+                <ul>
+                    <li>Salaries and wages</li>
+                    <li>Benefits (health insurance, retirement)</li>
+                    <li>Payroll taxes</li>
+                    <li>Consultant fees</li>
+                </ul>
+
+                <h4>Non-Personnel Costs</h4>
+                <ul>
+                    <li>Rent and utilities</li>
+                    <li>Supplies and materials</li>
+                    <li>Equipment and technology</li>
+                    <li>Travel and transportation</li>
+                    <li>Marketing and communications</li>
+                    <li>Program-specific expenses</li>
+                </ul>
+
+                <h4>Indirect Costs (Overhead)</h4>
+                <ul>
+                    <li>Administrative salaries</li>
+                    <li>Office rent and utilities</li>
+                    <li>Accounting and legal services</li>
+                    <li>Insurance</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Budget Narrative</strong>
+                    <p>Explains and justifies each budget line item. It should:</p>
+                    <ul>
+                        <li>Describe how costs were calculated</li>
+                        <li>Explain why items are necessary</li>
+                        <li>Show how costs align with strategies</li>
+                        <li>Demonstrate cost-effectiveness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 9: ORGANIZATIONAL BACKGROUND -->
+        <div id="step9" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🏢</span> Step 9: Writing the Organizational Background</h2>
+
+                <h3>Purpose of Organizational Background</h3>
+                <p>Provides information about WHO is proposing the project. Gives funders confidence in the organization's ability to achieve its goals.</p>
+
+                <h3>Key Objectives</h3>
+                <ul>
+                    <li>Provide information about the nonprofit's mission, values, and distinguishing characteristics</li>
+                    <li>Highlight why the organization is capable of delivering on its promises</li>
+                    <li>Build funder confidence in organizational capacity</li>
+                </ul>
+
+                <h3>Key Points to Include</h3>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">History</div>
+                        <div class="accordion-content">
+                            <p>Founding story, when and why the organization was created, major milestones and achievements</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Community Demographics</div>
+                        <div class="accordion-content">
+                            <p>Who the organization serves, geographic area covered, population characteristics and needs</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Innovative Programs & Special Services</div>
+                        <div class="accordion-content">
+                            <p>Unique approaches, special initiatives, programs that set the organization apart</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">Credibility & Success</div>
+                        <div class="accordion-content">
+                            <p>Track record of success, awards and recognition, partnerships and collaborations, testimonials and impact stories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Tips for Writing Organizational Background</h3>
+                <ol>
+                    <li>Start with the organization's founding story and mission statement</li>
+                    <li>Explain what the organization does, how it operates, and whom it serves</li>
+                    <li><strong>Tailor the background for each funder</strong> by highlighting relevant information</li>
+                    <li>Focus on key information that strengthens the case for support</li>
+                    <li>Avoid unnecessary details that don't add value</li>
+                </ol>
+
+                <h3>For New Organizations or Youth Teams</h3>
+                <p>If the organization is new without a long history:</p>
+                
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Mission & Vision</strong>
+                        Clearly state your purpose and aspirations
+                    </div>
+                    <div class="mini-card">
+                        <strong>Founding Story</strong>
+                        Explain what inspired creation of the organization/team
+                    </div>
+                    <div class="mini-card">
+                        <strong>Experiences & Expertise</strong>
+                        Highlight relevant skills and background of team members
+                    </div>
+                    <div class="mini-card">
+                        <strong>Future Plans (Optional)</strong>
+                        Show vision for growth and sustainability
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>💡 Remember</strong>
+                    Even without extensive history, new organizations can demonstrate capability through team expertise, passion, community connections, and thoughtful planning.
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 10: PROPOSAL SUMMARY -->
+        <div id="step10" class="content-section">
+            <div class="card">
+                <h2><span class="icon">📝</span> Step 10: Writing the Proposal Summary</h2>
+
+                <h3>What is a Proposal Summary?</h3>
+                <p>A concise and clear abstract of the entire proposal. It should highlight the strongest aspects to make the funder want to learn more or read the full proposal. The summary typically serves as the opening element.</p>
+
+                <h3>Other Names for Proposal Summary</h3>
+                <div class="key-terms">
+                    <span class="key-term">Project Synopsis</span>
+                    <span class="key-term">Project Abstract</span>
+                    <span class="key-term">Project Overview</span>
+                    <span class="key-term">Executive Summary</span>
+                </div>
+
+                <h3>Main Components</h3>
+                <p>The summary should be concise (no more than 1-2 pages) and include:</p>
+                
+                <ol>
+                    <li><strong>Identify your organization</strong> - Brief introduction</li>
+                    <li><strong>State the purpose of the project/grant</strong> - What you aim to accomplish</li>
+                    <li><strong>Highlight organization's qualifications</strong> - Why you're capable</li>
+                    <li><strong>Describe anticipated results</strong> - Expected outcomes and impact</li>
+                    <li><strong>Provide the total budget</strong> - Amount requested</li>
+                    <li><strong>State the duration</strong> - Project timeframe</li>
+                </ol>
+
+                <h3>Tips for Writing the Summary</h3>
+                
+                <div class="highlight-box">
+                    <strong>Decide on Key Points</strong>
+                    Identify the most important point from each section of the proposal. Include only those points in the summary.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Stress Points Important to Funder</strong>
+                    Make sure the summary highlights the potential funder's priorities and interests.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>REMEMBER</strong>
+                    The summary should provide a clear understanding of the need for your project, its goals, and objectives. It should be well-written and engaging to set your proposal apart from others.
+                </div>
+
+                <h3>Why is the Proposal Summary Important?</h3>
+                <ul>
+                    <li><strong>First Impression:</strong> Often the first (sometimes only) part funders read</li>
+                    <li><strong>Decision Factor:</strong> Can determine if funder reads the full proposal</li>
+                    <li><strong>Quick Overview:</strong> Busy reviewers can quickly understand your project</li>
+                    <li><strong>Standalone Document:</strong> May be circulated separately for initial screening</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>⚠️ Writing Order</strong>
+                    Although the summary appears first in the proposal, write it LAST after completing all other sections. This ensures you can accurately summarize the full proposal.
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 11: SUBMITTING THE APPLICATION -->
+        <div id="step11" class="content-section">
+            <div class="card">
+                <h2><span class="icon">📤</span> Step 11: Submitting the Application</h2>
+
+                <h3>Submission Methods</h3>
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Hard Copy Submission</strong>
+                        Physical documents mailed or delivered in person
+                    </div>
+                    <div class="mini-card">
+                        <strong>Soft Copy Submission</strong>
+                        Electronic submission via email or online portals
+                    </div>
+                </div>
+
+                <h3>Writing a Cover Letter</h3>
+                <p>For hard copy submissions, always include a cover letter unless explicitly asked not to.</p>
+
+                <h4>Cover Letter Should Include:</h4>
+                <ol>
+                    <li><strong>Brief Organization Introduction</strong>
+                        <ul>
+                            <li>Introduce your organization or team</li>
+                            <li>State the requested amount</li>
+                            <li>Explain the purpose of the grant</li>
+                        </ul>
+                    </li>
+                    <li><strong>Proposal Highlights</strong>
+                        <ul>
+                            <li>Concise overview of the proposal</li>
+                            <li>Key objectives</li>
+                            <li>Important points that align with funder priorities</li>
+                        </ul>
+                    </li>
+                    <li><strong>Appreciation & Contact Info</strong>
+                        <ul>
+                            <li>Thank the funder for consideration</li>
+                            <li>Provide contact information for inquiries</li>
+                            <li>Invite further interaction</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="highlight-box">
+                    <strong>NOTE</strong>
+                    The letter should be signed by the executive director, board president, or both. If the contact person is different, clearly mention their name, title, email, and phone extension.
+                </div>
+
+                <h3>Writing a Cover Email</h3>
+                <p>For email submissions, write a short cover email similar to a cover letter but more concise.</p>
+
+                <div class="formula-box" style="font-family: 'DM Sans', sans-serif; font-size: 0.9rem;">
+Hello [Funder Name],
+
+On behalf of [Organization], I am pleased to submit the attached proposal for [Project Name] for your consideration. We are seeking [Amount] for [Purpose].
+
+We have included the following attachments: [list all attachments].
+
+Should you need anything further or have questions, please contact me at [phone] or [email].
+
+We deeply appreciate your consideration and look forward to hearing from you.
+
+[Name]
+[Title]
+                </div>
+
+                <h3>Content of Appendices/Attachments</h3>
+                <p>Common required documents:</p>
+                <ul>
+                    <li>Organization registration documents/licenses</li>
+                    <li>Most recent audited financial statement</li>
+                    <li>List of board members with work affiliations</li>
+                    <li>CVs of main staff working on the project</li>
+                    <li>Overall budget for current fiscal year</li>
+                    <li>Latest annual report (if applicable)</li>
+                    <li>Letter of inquiry and/or letter proposal (if applicable)</li>
+                </ul>
+
+                <h3>Online Portal Submissions</h3>
+                
+                <h4>TIPS for Online Portals:</h4>
+                <ul>
+                    <li>Check if account setup is needed in the portal</li>
+                    <li>Confirm registration number requirements</li>
+                    <li>Ensure the portal allows saving of submissions in progress</li>
+                    <li>Submit before the deadline to avoid portal crashes</li>
+                </ul>
+
+                <h4>Common Portal Types:</h4>
+                <div class="key-terms">
+                    <span class="key-term">Email Application</span>
+                    <span class="key-term">Online Form</span>
+                    <span class="key-term">Dedicated Website</span>
+                </div>
+
+                <h3>Email vs Paper Submission Guidelines</h3>
+                
+                <div class="grid-2">
+                    <div class="mini-card">
+                        <strong>Emailing the Proposal</strong>
+                        <ul>
+                            <li>Convert to PDF format</li>
+                            <li>Verify recipient names and emails</li>
+                            <li>Follow subject line requirements</li>
+                            <li>List all included attachments</li>
+                            <li>Provide contact email</li>
+                            <li>Double-check CC line</li>
+                        </ul>
+                    </div>
+                    <div class="mini-card">
+                        <strong>Paper Proposal</strong>
+                        <ul>
+                            <li>Read funder's guidelines for number of copies</li>
+                            <li>Submit correct number of copies</li>
+                            <li>Ensure proper binding if required</li>
+                            <li>Include cover letter</li>
+                            <li>Organize attachments clearly</li>
+                            <li>Mail with tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 12: SUSTAINING RELATIONSHIPS -->
+        <div id="step12" class="content-section">
+            <div class="card">
+                <h2><span class="icon">🤝</span> Step 12: Sustaining Relationships with Funders</h2>
+
+                <h3>After Submission: What's Next?</h3>
+                <p>After submitting your proposal, it's essential to follow up and maintain relationships with funders.</p>
+
+                <h3>1. Following Up on the Proposal</h3>
+                
+                <div class="highlight-box">
+                    <strong>Pay Attention to Guidelines and Deadlines</strong>
+                    Review the funder's timeline for decisions and respect their process.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Respect Funder Requests</strong>
+                    If they ask not to call or email during specific periods, honor that request.
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Be Ready for Site Visits</strong>
+                    Some funders conduct site visits as part of their review process. Be prepared!
+                </div>
+
+                <h3>2. Managing a Site Visit</h3>
+                <p>A site visit is when the funder visits your organization or proposed program location.</p>
+
+                <h4>Preparation Steps:</h4>
+                <ol>
+                    <li>Confirm participation of key program staff</li>
+                    <li>Share the full proposal and ask everyone to review it</li>
+                    <li>Distribute any advance questions from the funder</li>
+                    <li>Hold a meeting to align everyone's knowledge and roles</li>
+                    <li>Plan and schedule a tour if requested</li>
+                    <li>Ensure the tour showcases important program elements</li>
+                    <li>Coordinate logistics and inform all participants</li>
+                    <li>Check with staff to avoid disruptions or privacy issues</li>
+                </ol>
+
+                <h3>3. Responding to the Funder's Decision</h3>
+                <p>Regardless of the result, continue building relationships with funders.</p>
+
+                <h4>When the Proposal is Funded ✅</h4>
+                <ul>
+                    <li>Send a formal thank-you letter signed by the executive director</li>
+                    <li>Consider recognizing the funder in newsletters or donor lists</li>
+                    <li>Maintain regular communication and provide program updates</li>
+                    <li>Submit required reports on time</li>
+                    <li>Invite funder to events or program activities</li>
+                    <li>Share success stories and impact data</li>
+                </ul>
+
+                <h4>When the Proposal is Not Funded ❌</h4>
+                <div class="highlight-box">
+                    <strong>Remember:</strong> Proposals may be declined due to high competition for limited funds, not necessarily because of project quality.
+                </div>
+
+                <ul>
+                    <li><strong>Gather Feedback:</strong> Ask funders for feedback to improve future applications</li>
+                    <li><strong>Keep Funders Informed:</strong> Continue sharing organizational news and updates</li>
+                    <li><strong>Build Relationships:</strong> Maintain contact for future opportunities</li>
+                    <li><strong>Thank Them:</strong> Express appreciation for their time and consideration</li>
+                    <li><strong>Ask About Resubmission:</strong> Inquire if you can apply again in the future</li>
+                </ul>
+
+                <h3>Final Thoughts</h3>
+                <div class="highlight-box">
+                    <strong>Relationship Building is Ongoing</strong>
+                    <p>Whether funded or not, maintaining positive relationships with funders creates opportunities for future support. Funders appreciate organizations that are professional, communicative, and mission-focused.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAM INFO SECTION -->
+        <div id="exam" class="content-section">
+            <div class="exam-info">
+                <h2 style="color: white; margin-bottom: 1rem;">📋 Final Examination Information</h2>
+                <p style="margin-bottom: 1rem;">Time Suggested: 120 minutes</p>
+                
+                <table style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Content</th>
+                            <th>Marks</th>
+                            <th>Time (min)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>Key Concepts</td>
+                            <td>40</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>Comprehensive Questions</td>
+                            <td>20</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>Application and Reflection</td>
+                            <td>30</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Project Design</td>
+                            <td>—</td>
+                            <td>60</td>
+                        </tr>
+                        <tr style="font-weight: bold; background: var(--primary-light); color: white;">
+                            <td colspan="2">Total</td>
+                            <td>100</td>
+                            <td>120</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">📖</span> Key Terms to Study</h2>
+                <p>Make sure you understand these important concepts:</p>
+                
+                <div class="key-terms">
+                    <span class="key-term">Appendices</span>
+                    <span class="key-term">Budget Narrative</span>
+                    <span class="key-term">Capacity Building</span>
+                    <span class="key-term">Civic Engagement</span>
+                    <span class="key-term">Continuation Grant</span>
+                    <span class="key-term">Corporate Social Responsibility</span>
+                    <span class="key-term">Evaluation</span>
+                    <span class="key-term">Executive Director</span>
+                    <span class="key-term">Executive Summary</span>
+                    <span class="key-term">External Evaluation</span>
+                    <span class="key-term">Fundable</span>
+                    <span class="key-term">Fundraising Campaign</span>
+                    <span class="key-term">Goal</span>
+                    <span class="key-term">Grant Guidelines</span>
+                    <span class="key-term">Hypothesis</span>
+                    <span class="key-term">Impact</span>
+                    <span class="key-term">Letter of Inquiry</span>
+                    <span class="key-term">Leverage</span>
+                    <span class="key-term">Logic Model</span>
+                    <span class="key-term">Multiyear Budget</span>
+                    <span class="key-term">Objective</span>
+                    <span class="key-term">Operating Support</span>
+                    <span class="key-term">Personnel Costs</span>
+                    <span class="key-term">Problem Statement</span>
+                    <span class="key-term">Program Support</span>
+                    <span class="key-term">Project Proposal</span>
+                    <span class="key-term">Proposal Summary</span>
+                    <span class="key-term">Prospect Research</span>
+                    <span class="key-term">Qualitative Method</span>
+                    <span class="key-term">Quantitative Method</span>
+                    <span class="key-term">Return on Investment (ROI)</span>
+                    <span class="key-term">SMART/SMARTIE</span>
+                    <span class="key-term">Social Justice</span>
+                    <span class="key-term">Statement of Sustainability</span>
+                    <span class="key-term">Strategies</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">✍️</span> Practice Application Question</h2>
+                <p><strong>Scenario:</strong> Reducing Plastic Waste at RUPP</p>
+                
+                <div class="highlight-box">
+                    <strong>Context:</strong>
+                    <p>In Phnom Penh, citizens use over 2,000 plastic bags per year on average. At RUPP, thousands of daily discarded items include plastic bags, bottles, takeaway containers, and disposable coffee cups. You have been allocated $5,000 USD to implement a pilot project between 2025-2026.</p>
+                </div>
+
+                <h3>Key Issues Identified:</h3>
+                <ol>
+                    <li><strong>Low Awareness of Water Dispensers:</strong> Limited knowledge of existing water refill stations; perception of unclean water; inconvenience of carrying reusable bottles</li>
+                    <li><strong>Habit of Using Single-Use Plastics:</strong> Convenience and routine; limited alternatives for food and beverage purchases</li>
+                </ol>
+
+                <h3>What You Need to Develop:</h3>
+                <ol>
+                    <li><strong>Problem Statement (150 words)</strong>
+                        <ul>
+                            <li>Identify a specific issue</li>
+                            <li>Provide clear justification</li>
+                            <li>Use paraphrased information with proper sources</li>
+                        </ul>
+                    </li>
+                    <li><strong>One Goal and Two SMART Objectives</strong>
+                        <ul>
+                            <li>Must effectively highlight the project</li>
+                            <li>Follow SMART criteria</li>
+                        </ul>
+                    </li>
+                    <li><strong>Two Activities per Objective (100 words each)</strong>
+                        <ul>
+                            <li>Clear justification and reasons</li>
+                        </ul>
+                    </li>
+                    <li><strong>Evaluation Plan (100 words)</strong>
+                        <ul>
+                            <li>Based on your activities and plan</li>
+                            <li>Clear justification</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="highlight-box">
+                    <strong>💡 Study Tip</strong>
+                    Practice writing this complete proposal following all the steps you've learned. This type of comprehensive question tests your understanding of the entire grantseeking process.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop"></div>
+
+    <script>
+        // Tab navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all accordions
+                    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Toggle clicked accordion
+                    if (!isActive) {
+                        this.classList.add('active');
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'flex';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
